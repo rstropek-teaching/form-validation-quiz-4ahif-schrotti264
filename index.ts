@@ -2,6 +2,7 @@ $('button[type="submit"]').prop('disabled',true);
 $('#emailMandatory').prop('hidden',true);
 $('#otherMediaChannel').hide();
 
+// Tip: Consider using verbs as method names (e.g. enableSubmit instead of submitEnabled)
 function submitEnabled(){
     /*
     Check if Submit Button should be enabled or disabled
@@ -16,6 +17,8 @@ function submitEnabled(){
     }
 }
 
+// Tip: Remember: Don't repeat yourself. #firstName- and -#lastName handlers are
+//      very similar. Consider creating a method and calling it in both situations.
 $('#firstName').keyup(() => {
     if($('#firstName').val()){
         $('#firstNameMandatory').prop('hidden',true);
@@ -51,6 +54,7 @@ function newsletterEmail(){
 $('#email').keyup(newsletterEmail);
 
 $('#mediaChannelSelect').change(() => {
+    // Tip: Don't check in console.log statements if they are just used for debugging purposes
     console.log($('#otherMediaChannel'));
     if($('option:selected')[0].innerText === 'Other'){
         $('#otherMediaChannel').show();
